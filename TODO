@@ -1,0 +1,13 @@
+Things on the table to do:
+
+-- Add autoconf and automake to the project to configure for different archs.
+
+-- Add a config file to be able to place the commands for the underlying firewall
+   system in, so that they can be user configurable without recompiling.
+
+-- Add iptables rules to allow port forwards, not just enable DNAT entries
+
+-- Redo the install file
+
+-- Lots of other memory and procedural cleanups
+

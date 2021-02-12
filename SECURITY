@@ -1,0 +1,41 @@
+Here's our biggest problem, and our opponents arguments to this software.  
+However, we feel that Open Source is all about giving people choices, and
+letting intelligent people make intelligent decisions about its use.  A lot
+of us really NEED this, and can live with the consequences because we are
+simply connecting a home network to the internet through one ip, and we
+would have had the windows machines (or whatever internet device) connected
+directly in the first place.  That being said, here we go:
+
+UPnP version 1.0, of which this program is based, is inherently flawed.  As
+with most Microsoft supported software, there was a lot of theory put out 
+there, but no code.  Well what happened is they made attempt to get this
+concept of UPnP out there, and in the inital version they weren't concerned
+with security or any advanced controls.  Simply all they wanted was
+connectivity.  So we are stuck with this for now.  The UPnP server, by itself, 
+does no security checking.  If it recieves a UPnP request to add a portmapping
+for some ip address inside the firewall, it just does it.  This program will 
+attempt to verify the source ip contained in the UPnP request against the
+source ip of the actualy packet, but as always, these can be forged.  The
+UPnP server makes no attempt to verify this connection with the caller, and
+therefore it just assumes whoever asked is the person really wanting it.
+Theoretically this could open up ports on some other box than the caller to
+the outside world, and this is where intelligent decision making comes in. 
+If you restrict the ability of this to happen with iptables rules, then this
+becomes a non-issue, and only the machines that iptables allows to have stuff
+go to will be allowed.  But sure, everyone can come up with some way to get
+around this so listen.
+
+We are going to try to do the best we can to place source ip verification, 
+config files that say which machines can request portmappings, and which
+machines can recieve portmappings, and any other things that come along.
+
+This SOFTWARE IS AN BETA RELEASE AND NO CLAIMS ARE MADE TO ITS SECURITY OR
+ITS FUNCTIONALITY.  Just want to let you guys know that if you can think of
+a way to screw the security up with this, we'd like to hear about it on the
+mailing list. If you want to write in and tell us how totally off base we are
+and how this is a useless, security plagued, Microsoft product driven piece
+of software, let me just tell you what our mothers always say, "If you don't
+have something nice to say, then don't say anything at all!".  We appreciate
+constructive criticism, but let's try to keep the flames to yourself.
+
+-- Glover George <dime@gulfsales.com>

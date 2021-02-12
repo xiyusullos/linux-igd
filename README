@@ -1,0 +1,39 @@
+NOTE:  This program only creates DNAT (portmap) entries in you firewall on the
+external interface (public ip).  Any other firewall code must be set to allow
+basically all tcp and udp through the FORWARD chain to your client machines,
+and the client machines must be able to contact the firewall using tcp and udp
+through the firewall's INPUT chain on it internal interface.  
+
+We will be adding some checks to see if FORWARD has a default policy of DROP or
+REJECT, however placing rules once we determine this is a bit tricky.  There's 
+at the moment no real way to check to see if a packet matchin this rule will
+pass through any additional rules that may be located above it. Also, we will
+probably need to check for any rules below as well.  Hopefully we can get this
+implemented soon.
+
+In the meantime, please be aware of this fact, and if you are seeing 
+Advertisements sent in the /var/log/debug file (or whatever you have syslog
+set to log DEBUG level messages to), but you are not seeing AddPortMaps,
+the most likely this is the problem, or it could be the following problem.
+
+UPnP works with the 239.0.0.0/255.0.0.0 multicast addresses.  Windows Messenger
+may also send request to a Unicast address, and thus the reason for the patch
+to the UPnP source code for this to work.  Nevertheless, to add a route in 
+your box for the multicast address, just use the following command, replaceing
+<int_if> with the interface name of your inside interface name (i.e., eth0).
+
+   route add -net 239.0.0.0 netmask 255.0.0.0 <int_if>
+
+That's it, you'll want to make sure your iptables rules aren't blocking this as
+well.  Iptables has great strengths, but one of its weaknesses is no usespace
+api at the moment to help with us intelligently adding rules.  So most of 
+getting this to work requires you understanding how UPnP works, and being able
+to adjust your firewall rules to this.  The above should get you started,
+however.  It's rather simple.
+
+SECURITY NOTE:  Please see the SECURITY file included with this distribution
+about the consequences of using this software.
+ 
+More information to come soon.
+
+-- Glover George <dime@gulfsales.com>

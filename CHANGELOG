@@ -1,0 +1,54 @@
+-- Note to everyone, these are by no means complete, since I can't remember half the time
+   what i did.  And I know they are not professional changelogs, I mean come on, I'm 23,
+   I'm still a kid :-) 
+
+Version 0.92 -- 01/13/2003
+   GG -- Fixed issues with Direct Play games not deleting broadcast port mappings
+         So most if not all Direct Play games will now work correctly.
+      -- Added Byte and Packet counter code contributed by giussani
+      -- Changed all the xml and skl files to include our UUID and some other updated
+         information that needed to be changed.
+      -- Added a CREDITS file to make sure I give thanks to the person who inspired
+         me to write this program, along with everyone else who's contributing.
+      -- Fixed the startup message in messages to report the correct version now.
+      -- Once again, other small changes i can't remember  
+
+Version 0.91 -- 12/29/2002
+   GG -- Fixed the port mapping delete's, which was an entire botch in version 0.90
+   GG -- Some more general cleanups to the code
+
+Version 0.90 -- 12/24/2002
+   GG -- Too Many changes to remember, it's been a while but here's what works now
+   GG -- File Transfer Seems to be working (at least for me, i don't swear to it)
+   GG -- You can now view your portmapping listings from windows XP with the connection icon
+   GG    You can only view portmappnigs once some are added, so wait a few minutes
+   GG -- Lots of restructuring of the code to more modularize it, allowing people to work
+   GG    on different parts.
+   GG -- The uptime in the Windows XP Connection Icon works properly now
+   GG -- File transfer works, did i tell you? :-) I haven't been sending files just like you guys.
+   GG -- More things that i'll add in the next version's changelog, it's christmas, i'm taking a break
+   GG    (Most of you think i've been taking a break :-)) 
+
+Version 0.75 -- 05/15/2002
+   GG -- Changed the program to run as a true daemon now, forking into the
+         backround properly
+   GG -- Added some signal hooks to allow the program to be shut down with a
+         killall upnpd.
+   GG -- Removed some of the excessive debugging found in previous version in
+         /var/log/debug.
+   GG -- Made some relevant changes to the INSTALL, README, and SECURITY files.
+   GG -- Placed the code into CVS on source forge.
+   GG -- Usage now prints to STDOUT where it should have in the first place.
+   GG -- When the daemon is running, in Windows a connection description now 
+         shows up in Network Connections representing the gateway connection.
+         Windows has always recognized it this way, but until now you didn't
+         have a way to view the connection details.
+
+Version 0.71 -- 05/03/2002
+   GG -- Ok I goofed, and still had it statically grabbing one of the ip
+         addresses.  This is the real officil first real official release,
+         so let us know what you think.  
+
+Version 0.70 -- 05/03/2002
+   GG -- First public release of the software.  We figure it's time to share
+         the glory and the shame.
